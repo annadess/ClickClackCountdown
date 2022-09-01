@@ -190,6 +190,10 @@ function AnalogClock(id, option) {
 		sec.style.transform = 'rotate(' + roS + 'deg)';
 		min.style.transform = 'rotate(' + roM + 'deg)';
 		hour.style.transform = 'rotate(' + roH + 'deg)';
+		//Audio:
 		now.getSeconds() % 2 == 0 ? clickAudio.play() : clackAudio.play();
+		//Sync:
+		if(now.getSeconds() % 60 == 0)
+			now = new Date();
 	}, 1000);
 }
