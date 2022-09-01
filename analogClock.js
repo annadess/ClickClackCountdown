@@ -176,9 +176,10 @@ function AnalogClock(id, option) {
 		this.panel.appendChild(point);
 
 
+	var now = new Date();
 	//start the clock (the animation part)
 	this.loop = setInterval(function () {
-		var now = new Date();
+		now.setSeconds(now.getSeconds() + 1);
 		label.innerHTML = dateTimeFormat(now);
 
 		var roS = 1.0 * 360 / 60 * now.getSeconds();
