@@ -175,7 +175,8 @@ function AnalogClock(id, option) {
 	if (localStorage)
 		this.panel.appendChild(point);
 
-
+	let clickAudio = document.getElementById('click');
+	let clackAudio = document.getElementById('clack');
 	var now = new Date();
 	//start the clock (the animation part)
 	this.loop = setInterval(function () {
@@ -189,5 +190,6 @@ function AnalogClock(id, option) {
 		sec.style.transform = 'rotate(' + roS + 'deg)';
 		min.style.transform = 'rotate(' + roM + 'deg)';
 		hour.style.transform = 'rotate(' + roH + 'deg)';
+		now.getSeconds() % 2 == 0 ? clickAudio.play() : clackAudio.play();
 	}, 1000);
 }
