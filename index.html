@@ -21,3 +21,15 @@
     </script>
 </body>
 </html>
+<style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+    }
+    div#clock > div > div{
+        outline: 1px solid transparent;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+        will-change: transform;
+        -webkit-perspective: 1000;
+    }
+</style>

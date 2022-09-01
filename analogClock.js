@@ -13,17 +13,6 @@ function AnalogClockOption(width, foreColor, bgColor) {
 
 function AnalogClock(id, option) {
 
-	var dateTimeFormat = function (time) {
-		var str = "";
-		str += time.getYear() + (time.getYear() > 1900 ? 0 : 1900) + "-";
-		str += time.getMonth() + 1 + "-";
-		str += time.getDate() + "<br/> ";
-		str += time.getHours() + ":";
-		str += time.getMinutes() + ":";
-		str += time.getSeconds();
-		return str;
-	}
-
 	if (!option)
 		option = {};//avoid undefined exception
 	this.foreColor = option.foreColor ? option.foreColor : "#000";//text color
@@ -55,7 +44,7 @@ function AnalogClock(id, option) {
 	label.style.fontSize = this.width / 15 + "px";
 	label.style.marginTop = this.width * 0.6 + "px";
 	label.style.color = this.foreColor;
-	label.innerHTML = dateTimeFormat(new Date());
+	label.innerHTML = new Date().toLocaleString();
 	if (this.width >= 100)//hide if the width is not enough to show the digital clock
 		this.panel.appendChild(label);
 
@@ -181,7 +170,7 @@ function AnalogClock(id, option) {
 	//start the clock (the animation part)
 	this.loop = setInterval(function () {
 		now.setSeconds(now.getSeconds() + 1);
-		label.innerHTML = dateTimeFormat(now);
+		label.innerHTML = now.toLocaleString();
 
 		var roS = 1.0 * 360 / 60 * now.getSeconds();
 		var roM = 1.0 * 360 / 60 * now.getMinutes();
