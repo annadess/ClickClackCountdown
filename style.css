@@ -1,0 +1,89 @@
+/** {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}*/
+
+body {
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	background-image: linear-gradient(#000000, #ca5100);;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+section {
+	max-width: 650px;
+	min-height: 10vh;
+
+	box-shadow: 0 1px 3px gray;
+
+	margin: 1rem;
+	padding: 2rem;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
+	gap: 1rem;
+
+	background-color: #00000048;
+	color: white;
+}
+
+section div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+div span {
+	font-size: 4rem;
+	font-weight: 600;
+}
+
+#clock > div {
+	float:center;
+}
+
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+div#clock > div > div{
+	outline: 1px solid transparent;
+	-webkit-backface-visibility: hidden;
+	transform: translateZ(0);
+	will-change: transform;
+	-webkit-perspective: 1000;
+}
+
+div.main-grid-container{
+	display: grid;
+	gap: 10px;
+	grid-auto-rows: auto;
+	grid-template-columns: 100%;
+}
+
+div.main-grid-container>div {
+	align-self: center;
+	justify-self: center;
+}
+
+div.header-text{
+	height:clamp(1vh, 5vw, 100px);
+	font-family: Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Arial,sans-serif;
+	font-weight: bold;
+	font-size: clamp(30px, 5vw, 100px);
+	margin:15px auto;
+	color: #ee5f00;
+	white-space: nowrap;
+}

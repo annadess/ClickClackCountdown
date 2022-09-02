@@ -3,33 +3,30 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Click Clack</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <style>
-        #clock > div {
-            float:center;
-        }
-    </style>
-    <div id="clock">
-    </div>
     <audio id="click" src="https://cdn.discordapp.com/attachments/829619057966972938/1014660513617150002/click.mp3" preload="auto"></audio>
     <audio id="clack" src="https://cdn.discordapp.com/attachments/829619057966972938/1014660512988016741/clack.mp3" preload="auto"></audio>
+    <div class="main-grid-container">
+        <div class="header-text">Time is clicking and clacking...</div> 
+        <div id="clock"></div>
+        <div>
+            <section>
+                <div class="days"><span id="days">0</span>days</div>
+                <div class="hours"><span id="hours">0</span>hours</div>
+                <div class="minutes"><span id="minutes">0</span>minutes</div>
+                <div class="seconds"><span id="seconds">0</span>seconds</div>
+            </section>
+        </div>
+    </div>
+    <!--timer script-->
+    <script src="main.js"></script>
+    <!-- clock script -->
     <script src="analogClock.js"></script>
     <script>
         AnalogClock("clock");
     </script>
 </body>
 </html>
-<style>
-    body {
-      font-family: 'Trebuchet MS', sans-serif;
-    }
-    div#clock > div > div{
-        outline: 1px solid transparent;
-        -webkit-backface-visibility: hidden;
-        transform: translateZ(0);
-        will-change: transform;
-        -webkit-perspective: 1000;
-    }
-</style>

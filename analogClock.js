@@ -6,8 +6,8 @@ Base on MIT License
 */
 
 function AnalogClockOption(width, foreColor, bgColor) {
-	this.foreColor = foreColor ? foreColor : "#000";
-	this.bgColor = bgColor ? bgColor : "#eee";
+	this.foreColor = foreColor ? foreColor : "#eee";
+	this.bgColor = bgColor ? bgColor : "#333";
 	this.width = width ? width : 400;
 }
 
@@ -15,8 +15,8 @@ function AnalogClock(id, option) {
 
 	if (!option)
 		option = {};//avoid undefined exception
-	this.foreColor = option.foreColor ? option.foreColor : "#000";//text color
-	this.bgColor = option.bgColor ? option.bgColor : "#eee";
+	this.foreColor = option.foreColor ? option.foreColor : "#eee";//text color
+	this.bgColor = option.bgColor ? option.bgColor : "#333";
 	this.width = option.width ? option.width : 400;
 
 	this.container = document.getElementById(id);
@@ -30,6 +30,7 @@ function AnalogClock(id, option) {
 	this.panel = document.createElement("div");//border-radius:50%;background-color:#eee;border:solid 1px #ccc;width:400px;height:400px;position:relative;
 	this.panel.style.borderRadius = "50%";
 	this.panel.style.backgroundColor = this.bgColor;
+	this.panel.style.opacity = 0.7;
 	this.panel.style.border = "solid 1px #ccc";
 	this.panel.style.width = this.width + "px";
 	this.panel.style.height = this.width + "px";
@@ -166,10 +167,9 @@ function AnalogClock(id, option) {
 
 	let clickAudio = document.getElementById('click');
 	let clackAudio = document.getElementById('clack');
-	var now = new Date();
 	//start the clock (the animation part)
 	this.loop = setInterval(function () {
-		now.setSeconds(now.getSeconds() + 1);
+		var now = new Date();
 		label.innerHTML = now.toLocaleString();
 
 		var roS = 1.0 * 360 / 60 * now.getSeconds();
@@ -181,8 +181,5 @@ function AnalogClock(id, option) {
 		hour.style.transform = 'rotate(' + roH + 'deg)';
 		//Audio:
 		now.getSeconds() % 2 == 0 ? clickAudio.play() : clackAudio.play();
-		//Sync:
-		if(now.getSeconds() % 60 == 0)
-			now = new Date();
 	}, 1000);
 }
