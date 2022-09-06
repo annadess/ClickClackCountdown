@@ -8,6 +8,10 @@ const timerDate = new Date("2022, sep, 06, 18:00:00 GMT+01:00").getTime();
 
 let updateTimer = setInterval(() => {
 	let now = new Date().getTime();
+	if (timeRemaining < 0) {
+		clearInterval(updateTimer);
+		return;
+	}
 
 	let timeRemaining = timerDate - now + 1000;
 
@@ -23,7 +27,5 @@ let updateTimer = setInterval(() => {
 	minuetesLeft.innerText = minutes;
 	secondsLeft.innerText = seconds;
 
-	if (timeRemaining < 0) {
-		clearInterval(updateTimer);
-	}
+	
 }, 1000);
