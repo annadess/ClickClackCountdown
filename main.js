@@ -8,12 +8,13 @@ const timerDate = new Date("2022, sep, 06, 18:00:00 GMT+01:00").getTime();
 
 let updateTimer = setInterval(() => {
 	let now = new Date().getTime();
+
+	let timeRemaining = timerDate - now + 1000;
+	
 	if (timeRemaining < 0) {
 		clearInterval(updateTimer);
 		return;
 	}
-
-	let timeRemaining = timerDate - now + 1000;
 
 	let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
 	let hours = Math.floor(
