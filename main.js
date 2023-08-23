@@ -4,7 +4,7 @@ let hoursLeft = document.getElementById("hours");
 let minuetesLeft = document.getElementById("minutes");
 let secondsLeft = document.getElementById("seconds");
 
-const timerDate = new Date("2022, sep, 06, 18:00:00 GMT+01:00").getTime();
+const timerDate = new Date("2023, sep, 26, 18:00:00 GMT+01:00").getTime();
 
 let updateTimer = setInterval(() => {
 	let now = new Date().getTime();
